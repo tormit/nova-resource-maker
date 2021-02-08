@@ -6,8 +6,8 @@ trait Tagable {
 
     protected $options = [
         'int' => [
+            'Number',
             'ID',
-            'Number'
         ],
         'varchar' => [
             'Text',
@@ -52,6 +52,7 @@ trait Tagable {
             $tagged[$column->Field] = [
                 'type' => $this->getCleanedType($column->Type),
                 'extra' => $column->Extra,
+                'nullable' => $column->Null,
             ];
         });
         return $tagged;

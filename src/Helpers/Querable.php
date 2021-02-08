@@ -43,6 +43,7 @@ trait Querable {
                 $field->Type = $result->type;
                 $field->Field = $result->field;
                 $field->Extra = $result->extra;
+                $field->nullable = false;
 
                 return $field;
             })
@@ -57,7 +58,7 @@ trait Querable {
      *
      * @return array
      */
-    public function getExistingFields()
+    public function getExistingFields(): array
     {
         return array_keys($this->fields);
     }

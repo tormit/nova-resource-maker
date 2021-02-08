@@ -9,6 +9,9 @@
             "email": "inanielhoussain@gmail.com"
         }
     ],
+    "require": {
+        "php": "^7.2"
+    },
     "minimum-stability": "stable",
     "autoload": {
       "psr-4": {
