@@ -9,6 +9,12 @@ trait Tagable {
             'Number',
             'ID',
         ],
+        'decimal' => [
+            'Number',
+        ],
+        'float' => [
+            'Number',
+        ],
         'varchar' => [
             'Text',
             'Password',

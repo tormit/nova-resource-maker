@@ -137,7 +137,9 @@ class MakeNovaResource extends Command
         if ($this->option('ignoreTimestamps') == 1 && in_array($name, self::$ignoredTimestamps)) {
             return;
         }
-        $type = \Illuminate\Support\Arr::first($this->getOptionsByType($column['type']));
+        $columnType = $column['type'];
+        $columnType = preg_replace('/[0-9(),]*/i', '', $columnType);
+        $type = \Illuminate\Support\Arr::first($this->getOptionsByType($columnType));
         if (!$type) {
             return;
         }
@@ -148,7 +150,7 @@ class MakeNovaResource extends Command
         if ($column['nullable'] === 'NO') {
             $rules[] = 'required';
         }
-        if ($column['type'] === 'varchar') {
+        if ($columnType === 'varchar') {
             $rules[] = 'max:191';
         }
 

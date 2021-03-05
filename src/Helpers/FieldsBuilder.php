@@ -45,7 +45,7 @@ class FieldsBuilder
     public function build()
     {
         foreach($this->fields as $name => $field){
-            echo "{$field['type']}::make('" . \Illuminate\Support\Str::snake($name) . "','{$name}')";
+            echo "{$field['type']}::make('" . ucfirst(str_replace('_', ' ', $name)) . "','{$name}')";
             // rules
             if(isset($field['rules'])){
                 echo "->rules('". implode("', '", $field['rules']) ."')";
